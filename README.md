@@ -1,6 +1,8 @@
 # A Tensorflow Implementation of "Riemannian approach to batch normalization"
 
-This code was used for experiments in **Riemannian approach to batch normalization** (NIPS 2017) by Minhyung Cho and Jaehyung Lee (https://arxiv.org/abs/1709.09603).
+This code was used for experiments in **Riemannian approach to batch normalization** (NIPS 2017) by Minhyung Cho and Jaehyung Lee (https://arxiv.org/abs/1709.09603). The poster for the conference can be found [here](https://rawgit.com/MinhyungCho/riemannian-batch-normalization/master/riemannian-batch-normalization-poster.pdf).
+
+Refer to https://github.com/MinhyungCho/riemannian-batch-normalization-pytorch for a PyTorch implementation.
 
 ## Abstract
 Batch Normalization (BN) has proven to be an effective algorithm for deep neural network training by normalizing the input to each neuron and reducing the internal covariate shift. The space of weight vectors in the BN layer can be naturally interpreted as a Riemannian manifold, which is invariant to linear scaling of weights. Following the intrinsic geometry of this manifold provides a new learning rule that is more efficient and easier to analyze. We also propose intuitive and effective gradient clipping and regularization methods for the proposed algorithm by utilizing the geometry of the manifold. The resulting algorithm consistently outperforms the original BN on various types of network architectures and datasets.
@@ -144,7 +146,7 @@ python3 train.py --model=resnet --depth=40 --widen_factor=10  --data=cifar100 --
 ```
 
 ## To apply this algorithm to your model
-[grassmann_optimizer.py](https://github.com/MinhyungCho/readme/blob/master/grassmann_optimizer.py) is the main implementation which provides the proposed SGD-G and ADAM-G optimizer, as well as HybridOptimizer, an abstract convenience class. [train.py](https://github.com/MinhyungCho/readme/blob/master/train.py) includes all the steps to apply the provided optimizers to your model.
+[grassmann_optimizer.py](https://github.com/MinhyungCho/riemannian-batch-normalization/blob/master/grassmann_optimizer.py) is the main implementation which provides the proposed SGD-G and Adam-G optimizer, as well as HybridOptimizer, an abstract convenience class. [train.py](https://github.com/MinhyungCho/riemannian-batch-normalization/blob/master/train.py) includes all the steps to apply the provided optimizers to your model.
 
 1. Collect all the weight parameters which need to be optimized on Grassmann manifold (and initialize them to a unit scale):
 
